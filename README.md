@@ -1,6 +1,6 @@
 # Insights LLC — website
 
-A static website for Insights LLC (Abby Stamelman Hocky, MSW). No framework and
+A static website for Insights LLC (Abby Stamelman Hocky). No framework and
 no database: the files in this folder *are* the website. Open `index.html` in a
 browser to see it exactly as visitors will.
 
@@ -10,6 +10,7 @@ index.html      the main page, BUILT from content.md — don't edit by hand
 _template.html  the structure of the main page (layout, not words)
 build.py        turns content.md + _template.html into index.html
 
+bio.html        the bio page, edited directly as HTML
 resume.html     the resume page, edited directly as HTML
 css/styles.css  all of the styling, in labelled sections
 css/fonts.css   the two web fonts, stored in this folder
@@ -17,6 +18,7 @@ js/main.js      the card-flipping behaviour and the footer year
 images/         photographs used on the site
 fonts/          Lora and Inter (open-source, SIL Open Font License)
 favicon.svg     the little icon shown in a browser tab
+tools/          one optional script, for redrawing the sharing preview card
 ```
 
 Everything the site needs is in this folder — it loads nothing from any other
@@ -148,12 +150,25 @@ pip install markdown      # some Macs need: pip3 install markdown
 Then open `index.html` to check it, and commit both `content.md` and
 `index.html`.
 
+> On Greg's Mac this is already set up in the `Python39` conda environment,
+> which is where the local builds have been run from:
+>
+> ```bash
+> /Users/hockyg/Software/miniconda3/envs/Python39/bin/python build.py
+> ```
+
 ### What content.md looks like
 
 The top of the file, between two rows of dashes, is a list of short settings —
 one per line, in the form `name: value`. Change what comes after the colon and
 leave the name alone. That is where the email address, the phone number, the
 headline, the photo filenames and the browser-tab title live.
+
+One thing is deliberately *not* there: the "Insights LLC" wordmark, in the
+header and again beneath Abby's name. It is set as a small piece of design
+rather than as a line of text — italic *Insights* followed by spaced capitals —
+so it lives in `_template.html`, `bio.html` and `resume.html`, and all four
+places are meant to change together.
 
 Below that come the longer passages, each under a heading like `## Welcome` or
 `## Card one — back`. **Keep those headings exactly as they are** — the page is
@@ -178,11 +193,14 @@ what is missing rather than publishing a broken page.
 
 ## Part 3 — Everything else
 
-### The resume page
+### The bio and resume pages
 
-`resume.html` is ordinary HTML, edited directly. The entries follow a repeating
-pattern, so the simplest way to add one is to copy an existing block and change
-the words inside it:
+`bio.html` and `resume.html` are ordinary HTML, edited directly rather than
+built from `content.md`. On the bio page the writing sits in three plain
+paragraphs; change the words between `<p>` and `</p>` and leave the tags alone.
+
+On the resume page the entries follow a repeating pattern, so the simplest way
+to add one is to copy an existing block and change the words inside it:
 
 ```html
 <li>
@@ -190,6 +208,91 @@ the words inside it:
   <p class="entry__meta">Organization, year</p>
 </li>
 ```
+
+Both pages, and the main page, carry a short list of links across the top. If a
+page is ever added or renamed, that list has to be corrected in three places:
+`_template.html` (for the main page), `bio.html` and `resume.html`.
+
+#### Saving either page as a PDF
+
+Both pages end with a **Save as PDF** button. It opens the browser's own print
+dialog, where *Save as PDF* is one of the destinations — so the file is made by
+the browser, and there is no separate PDF on the site to keep up to date. What
+comes out is a plain document: the name and wordmark as a letterhead, a
+hairline under it, then the writing, and on the bio page the portrait beside
+it. The navigation, the buttons, the footer and the background photographs all
+drop away.
+
+The button is hidden if JavaScript is unavailable; Print in the browser's own
+menu does exactly the same thing.
+
+---
+
+### The preview card
+
+When the address of the site is texted, posted in Slack, or pasted into
+Facebook or LinkedIn, the app quietly fetches the page and builds a small card
+out of hidden tags in it — a picture, a title and a line of description. The
+main page's card comes from five settings at the top of `content.md`:
+
+```
+site_url:            https://insights-llc.github.io
+preview_image:       images/social-card.jpg
+preview_title:       Insights LLC — Abby Stamelman Hocky
+preview_description: Leadership and organizational consulting, and spiritual …
+preview_alt:         Dune grass above a calm sea, above the words …
+```
+
+Three things are worth knowing:
+
+- **`site_url` has to be right.** The picture is sent to messaging apps as a
+  full web address, which is worked out from this setting. If the site later
+  moves to its own domain name, change `site_url` the same day, or the preview
+  will quietly stop appearing.
+- **The picture should be 1200 × 630 pixels.** That is the shape every app
+  expects; anything else gets cropped unpredictably, and small pictures are
+  ignored altogether. `build.py` prints a note if the file is a different size,
+  and stops outright if it is missing.
+- **Messages shows only the picture and a short title.** The description is for
+  Slack, WhatsApp, Facebook and LinkedIn. Apple also tends to shorten the title,
+  which is why the picture itself carries the business name.
+
+To use a different picture, put it in the `images` folder and point
+`preview_image` at it, then rebuild. `bio.html` and `resume.html` have the same
+tags written into them directly, near the top of each file, so change those too
+if the picture is meant to be the same everywhere.
+
+#### Why a change may not show up
+
+Every one of these apps caches previews, and Messages in particular remembers
+what it saw more or less indefinitely. A card someone has already received will
+not change.
+
+- **Give a replacement picture a new filename** — `social-card-2.jpg` rather
+  than a new version of `social-card.jpg`. This is the one reliable way to make
+  the change stick.
+- To see what the apps are reading now, paste the address into Facebook's
+  [sharing debugger](https://developers.facebook.com/tools/debug/), which has a
+  *Scrape Again* button, or LinkedIn's
+  [post inspector](https://www.linkedin.com/post-inspector/).
+- To test in Messages without waiting, add something harmless to the end of the
+  address — `https://insights-llc.github.io/?v=2` — which the site ignores but
+  which Messages treats as a new page.
+
+#### Redrawing the branded card
+
+`images/social-card.jpg` — the sea, the wordmark and the name — is drawn by
+`tools/make-social-card.py`, using the site's own fonts and colours. It is
+committed to the repository, so this only needs running if the wording on the
+card should change. Unlike `build.py` it needs three extra libraries:
+
+```bash
+pip install pillow fonttools brotli
+python3 tools/make-social-card.py
+```
+
+The words it draws are constants near the top of that file. Nothing else on the
+site depends on it.
 
 ### Changing a photograph
 
@@ -209,14 +312,15 @@ before adding them keeps the site quick.
 
 The photographs currently in use:
 
-| File           | Where it appears                            |
-|----------------|---------------------------------------------|
-| `ocean.jpg`    | Background of the top banner                |
-| `headshot.jpg` | Portrait in the welcome section             |
-| `lake.jpg`     | Spiritual Accompaniment card                |
-| `rocks.jpg`    | Leadership & Organizational Consulting card |
-| `sunset.jpg`   | Background of the contact band              |
-| `flower.jpg`   | Background of the resume page heading       |
+| File              | Where it appears                                   |
+|-------------------|----------------------------------------------------|
+| `ocean.jpg`       | Background of the top banner                       |
+| `headshot.jpg`    | Portrait in the welcome section, and on the bio page |
+| `lake.jpg`        | Spiritual Accompaniment card; bio page heading     |
+| `rocks.jpg`       | Leadership & Organizational Consulting card        |
+| `sunset.jpg`      | Background of the contact band                     |
+| `flower.jpg`      | Background of the resume page heading              |
+| `social-card.jpg` | The sharing preview — see "The preview card" above |
 
 ### Changing colours or type
 

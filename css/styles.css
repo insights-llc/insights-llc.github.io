@@ -110,6 +110,11 @@ p:last-child { margin-bottom: 0; }
   margin-left: .38em;
   vertical-align: .18em;
 }
+/* The same lettering as the header wordmark, set beneath a person's name:
+   one step down the type scale from the h1 above it. Everything else —
+   the italic serif, the spaced capitals — is inherited from .wordmark, so
+   the two always match. */
+.name-mark { font-size: clamp(1.6rem, 3.4vw, 2.15rem); }
 
 .site-header {
   position: sticky; top: 0; z-index: 50;
@@ -150,11 +155,8 @@ p:last-child { margin-bottom: 0; }
 }
 .hero h1 { margin-bottom: .35rem; }
 .hero h1 em { font-style: italic; }
-.hero__credential {
-  font-family: var(--sans); font-size: .95rem; font-weight: 500;
-  letter-spacing: .04em; word-spacing: .25em;
-  color: var(--ink-soft); margin: 0 0 1.6rem;
-}
+/* Lettering comes from .wordmark and .name-mark; only the spacing is set here. */
+.hero__credential { margin: 0 0 1.6rem; }
 .hero__services {
   font-family: var(--serif); font-size: clamp(1.02rem, 2.1vw, 1.28rem);
   font-style: italic; color: var(--ink);
@@ -321,11 +323,18 @@ p:last-child { margin-bottom: 0; }
 }
 .page-head__inner { position: relative; padding: clamp(2.6rem, 6vw, 4.2rem) 0; }
 .page-head h1 { margin-bottom: .3rem; }
+/* Lettering comes from .wordmark and .name-mark; only the spacing is set here. */
+.page-head__mark { margin: 0; }
 .page-head__contact {
   display: flex; flex-wrap: wrap; gap: .3rem 1.6rem;
   list-style: none; margin: 1rem 0 0; padding: 0;
   font-size: .96rem; color: var(--ink-soft);
 }
+
+.bio { padding: clamp(2.5rem, 6vw, 4rem) 0 0; }
+.bio .prose p { font-size: 1.06rem; }
+.bio .prose p:first-child { font-size: 1.13rem; }
+.bio .back-link { padding-top: clamp(1.8rem, 4vw, 2.6rem); }
 
 .resume { padding: clamp(2.5rem, 6vw, 4rem) 0 1rem; }
 .resume__summary {
@@ -358,7 +367,11 @@ p:last-child { margin-bottom: 0; }
 .plain-list li { margin-bottom: 1.1rem; }
 .plain-list li:last-child { margin-bottom: 0; }
 .plain-list .entry__meta { margin-bottom: 0; }
-.back-link { padding: 0 0 clamp(2.5rem, 6vw, 4rem); }
+/* The row of buttons at the foot of the bio and resume pages. */
+.back-link {
+  display: flex; flex-wrap: wrap; gap: .8rem;
+  padding: 0 0 clamp(2.5rem, 6vw, 4rem);
+}
 
 /* --- 11. Responsive ------------------------------------------------------ */
 @media (max-width: 860px) {
@@ -399,14 +412,37 @@ p:last-child { margin-bottom: 0; }
 .no-js .card__face--front { border-radius: var(--radius) var(--radius) 0 0; }
 .no-js .card__actions, .no-js .flip-hint { display: none; }
 
-/* --- 13. Print (resume) -------------------------------------------------- */
+/* --- 13. Print, and "Save as PDF" ---------------------------------------- */
+/* Both the bio and the resume are meant to come out of Print — or Save as PDF
+   — as a plain document: no navigation, no buttons, no background washes,
+   just the heading, the writing and (on the bio) the portrait. */
 @media print {
   .site-header, .site-footer, .back-link, .page-head__media, .btn { display: none !important; }
   body { background: #fff; font-size: 11pt; line-height: 1.45; }
   .resume__section { break-inside: avoid; padding: .6rem 0; }
   .page-head__inner, .resume { padding: 0 0 .6rem; }
   a { color: var(--ink); text-decoration: none; }
+
+  /* The name and the wordmark become the letterhead of the PDF, closed off
+     by a hairline. The tinted band behind them is dropped: whether a browser
+     prints background colours at all depends on a setting in its own dialog,
+     and the page should look the same either way. */
+  .page-head { background: none; }
+  .page-head h1 { font-size: 22pt; }
+  .name-mark { font-size: 14pt; }
+  .page-head__contact { margin-top: .5rem; font-size: 10pt; }
+  .page-head__inner { border-bottom: 1px solid var(--line); padding-bottom: .8rem; }
+
+  /* Bio: the portrait stays beside the writing, a little smaller, and no
+     paragraph is allowed to break across two pages. */
+  .bio { padding: 1.6rem 0 .6rem; }
+  .bio .welcome__grid { grid-template-columns: 150px minmax(0, 1fr); gap: 1.6rem; }
+  .bio .portrait { border-width: 3px; box-shadow: none; }
+  .bio .prose p, .bio .prose p:first-child { font-size: 11pt; break-inside: avoid; }
 }
+
+/* The print button does nothing without JavaScript, so it is not offered. */
+.no-js [data-print] { display: none; }
 
 /* Front of a card is clickable when JavaScript is available. */
 .js .card__face--front { cursor: pointer; }

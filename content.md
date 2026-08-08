@@ -12,12 +12,24 @@
 # =============================================================================
 
 # --- Browser tab and search-engine listing ---
-site_title: Insights LLC — Abby Stamelman Hocky, MSW
-site_description: Insights LLC — Abby Stamelman Hocky, MSW. Leadership and organizational consulting, and spiritual accompaniment (spiritual direction) for individuals, groups and organizational leaders.
+site_title: Insights LLC — Abby Stamelman Hocky
+site_description: Insights LLC — Abby Stamelman Hocky. Leadership and organizational consulting, and spiritual accompaniment (spiritual direction) for individuals, groups and organizational leaders.
+
+# --- The preview shown when the address is texted, posted or pasted ---
+#  Messages, WhatsApp, Slack, Facebook and the rest build that little card from
+#  the four settings below. See "The preview card" in README.md, which also
+#  explains why a changed preview can take a while to show up.
+#  site_url must be the real address of the site: previews need the full web
+#  address of the picture, and it is worked out from this.
+site_url: https://insights-llc.github.io
+site_name: Insights LLC
+preview_image: images/social-card.jpg
+preview_alt: Dune grass above a calm sea, above the words Insights LLC — Abby Stamelman Hocky
+preview_title: Insights LLC — Abby Stamelman Hocky
+preview_description: Leadership and organizational consulting, and spiritual accompaniment, for individuals, groups and organizational leaders.
 
 # --- The banner at the top ---
 name: Abby Stamelman Hocky
-credential: MSW · Insights LLC
 tagline_one: Leadership and Organizational Consulting
 tagline_two: Spiritual Accompaniment (Spiritual Direction)
 hero_image: images/ocean.jpg

@@ -17,11 +17,21 @@
 <meta name="description" content="{{ site_description }}">
 <meta name="theme-color" content="#f6f2ea">
 
-<!-- Social sharing preview -->
+<!-- The card shown when the address is texted, posted or pasted. The web
+     addresses here must be absolute — a messaging app is reading this page
+     from somewhere else entirely, so "images/…" would mean nothing to it.
+     build.py works them out from site_url in content.md. -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ site_title }}">
-<meta property="og:description" content="{{ site_description }}">
-<meta property="og:image" content="{{ hero_image }}">
+<meta property="og:site_name" content="{{ site_name }}">
+<meta property="og:url" content="{{ page_url }}">
+<meta property="og:title" content="{{ preview_title }}">
+<meta property="og:description" content="{{ preview_description }}">
+<meta property="og:image" content="{{ preview_image_url }}">
+<meta property="og:image:width" content="{{ preview_image_width }}">
+<meta property="og:image:height" content="{{ preview_image_height }}">
+<meta property="og:image:alt" content="{{ preview_alt }}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{{ page_url }}">
 
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -42,6 +52,7 @@
       <ul>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="bio.html">Bio</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -58,7 +69,10 @@
     </div>
     <div class="wrap hero__inner">
       <h1>{{ name }}</h1>
-      <p class="hero__credential">{{ credential }}</p>
+      <!-- The business name in the wordmark's own lettering, matching the
+           header. It is fixed here rather than in content.md for the same
+           reason the header wordmark is: it is a logo, not a line of text. -->
+      <p class="wordmark name-mark hero__credential"><em>Insights</em><span>LLC</span></p>
       <p class="hero__services">
         <span class="line">{{ tagline_one }}</span><span class="dot" aria-hidden="true">✳</span><span class="line">{{ tagline_two }}</span>
       </p>
@@ -198,8 +212,8 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; <span id="year">2026</span> Insights LLC · {{ name }}, MSW</p>
-    <p><a href="resume.html">Resume</a> · <a href="mailto:{{ email }}">{{ email }}</a> · <a href="tel:{{ phone_dial }}">{{ phone }}</a></p>
+    <p>&copy; <span id="year">2026</span> Insights LLC · {{ name }}</p>
+    <p><a href="bio.html">Bio</a> · <a href="resume.html">Resume</a> · <a href="mailto:{{ email }}">{{ email }}</a> · <a href="tel:{{ phone_dial }}">{{ phone }}</a></p>
   </div>
 </footer>
 

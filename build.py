@@ -71,6 +71,71 @@ def parse_settings(lines):
     return settings
 
 
+def image_size(path):
+    """Width and height of a JPEG or PNG, without needing any library.
+
+    The sharing preview declares the size of its picture so that a messaging
+    app can lay the card out before the picture has finished downloading.
+    """
+    data = path.read_bytes()
+    if data[:8] == b"\x89PNG\r\n\x1a\n":
+        width = int.from_bytes(data[16:20], "big")
+        height = int.from_bytes(data[20:24], "big")
+        return width, height
+    if data[:2] == b"\xff\xd8":
+        i = 2
+        while i < len(data) - 9:
+            if data[i] != 0xFF:
+                i += 1
+                continue
+            marker = data[i + 1]
+            # The frame headers are the ones carrying the dimensions;
+            # everything else is skipped by its stated length.
+            if 0xC0 <= marker <= 0xCF and marker not in (0xC4, 0xC8, 0xCC):
+                height = int.from_bytes(data[i + 5:i + 7], "big")
+                width = int.from_bytes(data[i + 7:i + 9], "big")
+                return width, height
+            if marker in (0xD8, 0xD9) or 0xD0 <= marker <= 0xD7:
+                i += 2
+            else:
+                i += 2 + int.from_bytes(data[i + 2:i + 4], "big")
+        sys.exit(f"{path.name} looks like a damaged JPEG — its size cannot be read")
+    sys.exit(
+        f"The preview picture {path.name} must be a .jpg or a .png "
+        "(those are the only kinds messaging apps reliably show)."
+    )
+
+
+def preview_addresses(settings):
+    """Turn the preview settings into the full web addresses a preview needs."""
+    base = settings.get("site_url", "").strip().rstrip("/")
+    if not base:
+        sys.exit("content.md needs a 'site_url' setting — see README.md")
+    if not base.startswith(("http://", "https://")):
+        sys.exit(f"content.md: site_url should begin with https:// — found {base!r}")
+
+    picture = settings.get("preview_image", "").strip()
+    if not picture:
+        sys.exit("content.md needs a 'preview_image' setting — see README.md")
+
+    settings["page_url"] = base + "/"
+    settings["preview_image_url"] = f"{base}/{picture.lstrip('/')}"
+
+    # The picture has to be one of the site's own files, so that its size can
+    # be measured and declared, and so that it cannot quietly disappear.
+    on_disk = HERE / picture
+    if not on_disk.exists():
+        sys.exit(f"content.md: preview_image points at {picture}, which is not there")
+    width, height = image_size(on_disk)
+    settings["preview_image_width"] = str(width)
+    settings["preview_image_height"] = str(height)
+    if (width, height) != (1200, 630):
+        print(
+            f"note: {picture} is {width}x{height}. Previews look best at "
+            "1200x630 — other shapes get cropped, and small ones are ignored."
+        )
+
+
 def slug(heading):
     """'Card one — front'  ->  'card_one_front'"""
     return re.sub(r"[^a-z0-9]+", "_", heading.lower()).strip("_")
@@ -107,6 +172,7 @@ def main():
 
     front_matter, body = split_front_matter(CONTENT.read_text(encoding="utf-8"))
     settings = parse_settings(front_matter)
+    preview_addresses(settings)
     sections = parse_sections(body)
 
     # Short settings are plain text, so anything special in them is escaped.

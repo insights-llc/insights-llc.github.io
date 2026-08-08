@@ -7,6 +7,22 @@
 <meta name="description" content="Professional experience, recognition, education and community involvement of Abby Stamelman Hocky, MSW, founder of Insights LLC.">
 <meta name="theme-color" content="#f6f2ea">
 
+<!-- The card shown when the address of this page is texted, posted or pasted.
+     These addresses are written out in full on purpose — a messaging app is
+     reading the page from elsewhere, so "images/…" would mean nothing to it.
+     On the main page the same tags are built from content.md instead. -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Insights LLC">
+<meta property="og:url" content="https://insights-llc.github.io/resume.html">
+<meta property="og:title" content="Resume — Abby Stamelman Hocky, MSW">
+<meta property="og:description" content="Professional experience, recognition, education and community involvement of Abby Stamelman Hocky, MSW, founder of Insights LLC.">
+<meta property="og:image" content="https://insights-llc.github.io/images/social-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dune grass above a calm sea, above the words Insights LLC — Abby Stamelman Hocky">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://insights-llc.github.io/resume.html">
+
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/lora-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -26,6 +42,7 @@
       <ul>
         <li><a href="index.html#about">About</a></li>
         <li><a href="index.html#services">Services</a></li>
+        <li><a href="bio.html">Bio</a></li>
         <li><a href="resume.html" aria-current="page">Resume</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
@@ -43,8 +60,8 @@
     <div class="wrap page-head__inner">
       <p class="eyebrow">Resume</p>
       <h1>Abby Stamelman Hocky, MSW</h1>
+      <p class="wordmark name-mark page-head__mark"><em>Insights</em><span>LLC</span></p>
       <ul class="page-head__contact">
-        <li>Insights LLC</li>
         <li><a href="mailto:abbysh.insights@gmail.com">abbysh.insights@gmail.com</a></li>
         <li><a href="tel:+12158398162">215-839-8162</a></li>
       </ul>
@@ -290,6 +307,9 @@
 
     <p class="back-link">
       <a class="btn btn--ghost" href="index.html"><span aria-hidden="true">←</span> Back to Insights LLC</a>
+      <!-- Opens the browser's own print dialog, where "Save as PDF" is one of
+           the destinations. Hidden when JavaScript is unavailable. -->
+      <button class="btn btn--ghost" type="button" data-print>Save as PDF</button>
     </p>
 
   </div>
@@ -299,7 +319,7 @@
 <footer class="site-footer">
   <div class="wrap">
     <p style="margin:0">&copy; <span id="year">2026</span> Insights LLC · Abby Stamelman Hocky, MSW</p>
-    <p style="margin:0"><a href="index.html">Home</a> · <a href="mailto:abbysh.insights@gmail.com">abbysh.insights@gmail.com</a> · <a href="tel:+12158398162">215-839-8162</a></p>
+    <p style="margin:0"><a href="index.html">Home</a> · <a href="bio.html">Bio</a> · <a href="mailto:abbysh.insights@gmail.com">abbysh.insights@gmail.com</a> · <a href="tel:+12158398162">215-839-8162</a></p>
   </div>
 </footer>
 

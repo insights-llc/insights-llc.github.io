@@ -1,7 +1,8 @@
 /* ==========================================================================
    Insights LLC — small amount of JavaScript
    1. The two service cards flip over when you select them.
-   2. The footer year keeps itself up to date.
+   2. The "Save as PDF" button opens the browser's print dialog.
+   3. The footer year keeps itself up to date.
    Nothing here needs editing when you change the words on the site.
    ========================================================================== */
 (function () {
@@ -102,7 +103,14 @@
     setHeights();
   }
 
-  /* ---------- 2. Footer year ---------- */
+  /* ---------- 2. "Save as PDF" ---------- */
+  // The browser's own print dialog offers "Save as PDF" on every platform, and
+  // the print stylesheet strips the page down to the writing and the portrait.
+  Array.prototype.forEach.call(document.querySelectorAll('[data-print]'), function (button) {
+    button.addEventListener('click', function () { window.print(); });
+  });
+
+  /* ---------- 3. Footer year ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = new Date().getFullYear();
 })();
