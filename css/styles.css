@@ -1,0 +1,397 @@
+/* ==========================================================================
+   Insights LLC — stylesheet
+   Palette: warm stone & sand
+   Sections are labelled so they are easy to find when editing.
+   ========================================================================== */
+
+/* --- 1. Design tokens (change a colour here and it changes everywhere) --- */
+:root {
+  --sand:      #f6f2ea;   /* page background            */
+  --sand-deep: #ece4d7;   /* alternating section band   */
+  --paper:     #fffdf9;   /* cards and panels           */
+  --ink:       #2c2823;   /* body text                  */
+  --ink-soft:  #575047;   /* secondary text             */
+  --clay:      #9a4f35;   /* accent: links, rules       */
+  --clay-deep: #7d3f2a;   /* accent on hover            */
+  --slate:     #33454f;   /* deep band background       */
+  --line:      #ded4c4;   /* hairlines                  */
+
+  --serif: "Lora", Georgia, "Times New Roman", serif;
+  --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --measure: 68ch;        /* comfortable reading width  */
+  --radius: 14px;
+  --shadow: 0 1px 2px rgba(44, 40, 35, .06), 0 12px 32px rgba(44, 40, 35, .08);
+  --shadow-lift: 0 2px 6px rgba(44, 40, 35, .08), 0 22px 48px rgba(44, 40, 35, .14);
+}
+
+/* --- 2. Base ------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+
+a {
+  color: var(--clay);
+  text-underline-offset: .18em;
+  text-decoration-thickness: .06em;
+}
+a:hover { color: var(--clay-deep); }
+
+h1, h2, h3, h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.22;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 .5em;
+}
+h1 { font-size: clamp(2.1rem, 5.2vw, 3.3rem); }
+h2 { font-size: clamp(1.6rem, 3.4vw, 2.15rem); }
+h3 { font-size: clamp(1.15rem, 2.2vw, 1.35rem); }
+p  { margin: 0 0 1.1em; }
+p:last-child { margin-bottom: 0; }
+
+:focus-visible {
+  outline: 3px solid var(--clay);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+.narrow { max-width: var(--measure); }
+
+.skip-link {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--slate); color: #fff; padding: .7rem 1.1rem; z-index: 100;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus { left: 0; }
+
+.eyebrow {
+  font-family: var(--sans);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--clay);
+  margin: 0 0 .9rem;
+}
+
+/* --- 3. Wordmark & site header ------------------------------------------ */
+.wordmark {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.wordmark em { font-style: italic; font-weight: 500; }
+.wordmark span {
+  font-style: normal;
+  font-size: .52em;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-left: .38em;
+  vertical-align: .18em;
+}
+
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(246, 242, 234, .92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .wrap {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: .85rem 0;
+  flex-wrap: wrap;
+}
+.site-nav ul {
+  display: flex; flex-wrap: wrap; gap: .35rem 1.4rem;
+  list-style: none; margin: 0; padding: 0;
+}
+.site-nav a {
+  font-size: .93rem; font-weight: 500; color: var(--ink-soft);
+  text-decoration: none; padding: .2rem 0;
+  border-bottom: 1.5px solid transparent;
+}
+.site-nav a:hover, .site-nav a[aria-current="page"] {
+  color: var(--clay); border-bottom-color: var(--clay);
+}
+
+/* --- 4. Hero ------------------------------------------------------------- */
+.hero { position: relative; background: var(--sand-deep); }
+.hero__media { position: absolute; inset: 0; overflow: hidden; }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 62%; }
+.hero__media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(246,242,234,.86) 0%, rgba(246,242,234,.72) 45%, rgba(246,242,234,.92) 100%);
+}
+.hero__inner {
+  position: relative;
+  padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5.5rem);
+  text-align: center;
+}
+.hero h1 { margin-bottom: .35rem; }
+.hero h1 em { font-style: italic; }
+.hero__credential {
+  font-family: var(--sans); font-size: .95rem; font-weight: 500;
+  letter-spacing: .04em; color: var(--ink-soft); margin: 0 0 1.6rem;
+}
+.hero__services {
+  font-family: var(--serif); font-size: clamp(1.02rem, 2.1vw, 1.28rem);
+  font-style: italic; color: var(--ink);
+  margin: 0 auto; max-width: 46ch; line-height: 1.6;
+}
+.hero__services .dot {
+  color: var(--clay); font-style: normal;
+  margin: 0 .55em; font-size: .8em; vertical-align: .1em;
+}
+.hero__services .nowrap { white-space: nowrap; }
+
+/* --- 5. Buttons ---------------------------------------------------------- */
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--sans); font-size: .95rem; font-weight: 600;
+  padding: .74rem 1.4rem; border-radius: 999px;
+  border: 1.5px solid var(--clay); background: var(--clay); color: #fff;
+  text-decoration: none; cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.btn:hover { background: var(--clay-deep); border-color: var(--clay-deep); color: #fff; transform: translateY(-1px); }
+.btn--ghost { background: transparent; color: var(--clay); }
+.btn--ghost:hover { background: var(--clay); color: #fff; }
+.btn--light { background: transparent; border-color: rgba(255,255,255,.55); color: #fff; }
+.btn--light:hover { background: #fff; border-color: #fff; color: var(--slate); }
+
+/* --- 6. Sections --------------------------------------------------------- */
+.section { padding: clamp(3.2rem, 7vw, 5.5rem) 0; }
+.section--band { background: var(--sand-deep); }
+
+/* Welcome: portrait + text */
+.welcome__grid {
+  display: grid; gap: clamp(1.8rem, 4vw, 3.2rem);
+  grid-template-columns: minmax(0, 240px) minmax(0, 1fr);
+  align-items: start;
+}
+.portrait {
+  border-radius: 50%; overflow: hidden; aspect-ratio: 1;
+  box-shadow: var(--shadow); border: 5px solid var(--paper);
+}
+.portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.welcome__text { max-width: var(--measure); }
+.welcome__text .lead { font-size: 1.13rem; }
+.resume-link { margin-top: 1.4rem; }
+
+/* --- 7. Flip cards ------------------------------------------------------- */
+.cards {
+  display: grid; gap: clamp(1.4rem, 3vw, 2.2rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+.card { perspective: 2200px; transition: height .55s cubic-bezier(.22,.61,.36,1); }
+.card__inner {
+  position: relative; height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .8s cubic-bezier(.22,.61,.36,1);
+}
+.card.is-flipped .card__inner { transform: rotateY(180deg); }
+.card__face {
+  position: absolute; top: 0; left: 0; width: 100%;
+  backface-visibility: hidden; -webkit-backface-visibility: hidden;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.card__face--back { transform: rotateY(180deg); }
+.card:hover .card__face--front { box-shadow: var(--shadow-lift); }
+
+.card__photo { background: var(--sand-deep); overflow: hidden; }
+.card__photo img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.card__body { padding: clamp(1.5rem, 2.6vw, 2rem); display: flex; flex-direction: column; flex: 1; }
+.card__body > *:last-child { margin-bottom: 0; }
+.card h2 { font-size: clamp(1.35rem, 2.6vw, 1.7rem); }
+.card__blurb { color: var(--ink-soft); }
+.card__actions { margin-top: auto; padding-top: 1.4rem; }
+
+.card__back-scroll { padding: clamp(1.5rem, 2.6vw, 2rem); }
+.card__back-scroll > *:first-child { margin-top: 0; }
+.card h3 {
+  font-family: var(--sans); font-size: .95rem; font-weight: 700;
+  letter-spacing: .01em; margin: 1.8rem 0 .8rem;
+}
+.card__list { list-style: none; margin: 0 0 1.4rem; padding: 0; }
+.card__list li {
+  position: relative; padding-left: 1.1rem; margin-bottom: .95rem;
+  font-size: 1rem;
+}
+.card__list li::before {
+  content: ""; position: absolute; left: 0; top: .62em;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--clay);
+}
+.card__list strong { color: var(--ink); }
+.card__note {
+  border-left: 3px solid var(--clay);
+  padding: .1rem 0 .1rem 1rem;
+  margin: 1.4rem 0;
+  font-size: .98rem;
+}
+.card__footnote { font-size: .9rem; color: var(--ink-soft); margin-top: 1.4rem; }
+.flip-hint { font-size: .82rem; color: var(--ink-soft); }
+
+/* --- 8. Contact band ----------------------------------------------------- */
+.contact { position: relative; color: #fff; background: var(--slate); overflow: hidden; }
+.contact__media { position: absolute; inset: 0; }
+.contact__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; }
+.contact__media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(30,42,49,.8) 0%, rgba(30,42,49,.72) 45%, rgba(30,42,49,.84) 100%);
+}
+.contact__inner {
+  position: relative; padding: clamp(3.2rem, 7vw, 5rem) 0; text-align: center;
+  text-shadow: 0 1px 14px rgba(18, 26, 31, .5);
+}
+.contact h2 { color: #fff; }
+.contact p { color: rgba(255,255,255,.86); }
+.contact .narrow { margin-inline: auto; }
+.contact__details {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: .6rem 2.5rem;
+  margin: 1.8rem 0 0; padding: 0; list-style: none;
+  font-size: 1.06rem;
+}
+.contact__details a { color: #fff; text-decoration-color: rgba(255,255,255,.5); }
+.contact__details a:hover { color: #fff; text-decoration-color: #fff; }
+.contact__signoff {
+  font-family: var(--serif); font-style: italic; font-size: 1.1rem;
+  color: rgba(255,255,255,.92); margin-top: 2rem;
+}
+
+/* --- 9. Footer ----------------------------------------------------------- */
+.site-footer {
+  background: var(--sand); border-top: 1px solid var(--line);
+  padding: 2rem 0; font-size: .9rem; color: var(--ink-soft);
+}
+.site-footer .wrap {
+  display: flex; flex-wrap: wrap; gap: .6rem 1.5rem;
+  align-items: center; justify-content: space-between;
+}
+.site-footer a { color: var(--ink-soft); }
+
+/* --- 10. Resume page ----------------------------------------------------- */
+.page-head { position: relative; background: var(--sand-deep); overflow: hidden; }
+.page-head__media { position: absolute; inset: 0; }
+.page-head__media img { width: 100%; height: 100%; object-fit: cover; }
+.page-head__media::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(246,242,234,.93), rgba(246,242,234,.86));
+}
+.page-head__inner { position: relative; padding: clamp(2.6rem, 6vw, 4.2rem) 0; }
+.page-head h1 { margin-bottom: .3rem; }
+.page-head__contact {
+  display: flex; flex-wrap: wrap; gap: .3rem 1.6rem;
+  list-style: none; margin: 1rem 0 0; padding: 0;
+  font-size: .96rem; color: var(--ink-soft);
+}
+
+.resume { padding: clamp(2.5rem, 6vw, 4rem) 0 1rem; }
+.resume__summary {
+  max-width: var(--measure); font-size: 1.1rem;
+  padding-bottom: clamp(1.6rem, 4vw, 2.4rem);
+  border-bottom: 1px solid var(--line);
+}
+.resume__section { padding: clamp(1.8rem, 4vw, 2.6rem) 0; border-bottom: 1px solid var(--line); }
+.resume__section:last-of-type { border-bottom: 0; }
+.resume__grid {
+  display: grid; gap: .6rem clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+  align-items: start;
+}
+.resume__grid h2 { position: sticky; top: 5rem; font-size: clamp(1.3rem, 2.6vw, 1.6rem); margin: 0; }
+.entry { margin-bottom: 1.9rem; max-width: var(--measure); }
+.entry:last-child { margin-bottom: 0; }
+.entry__title { font-family: var(--sans); font-size: 1.02rem; font-weight: 700; margin: 0 0 .15rem; }
+.entry__meta { font-size: .92rem; color: var(--ink-soft); margin: 0 0 .5rem; }
+.entry ul { list-style: none; margin: .4rem 0 0; padding: 0; }
+.entry ul li {
+  position: relative; padding-left: 1rem; margin-bottom: .3rem;
+  font-size: .98rem; color: var(--ink-soft);
+}
+.entry ul li::before {
+  content: ""; position: absolute; left: 0; top: .68em;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--clay);
+}
+.plain-list { list-style: none; margin: 0; padding: 0; max-width: var(--measure); }
+.plain-list li { margin-bottom: 1.1rem; }
+.plain-list li:last-child { margin-bottom: 0; }
+.plain-list .entry__meta { margin-bottom: 0; }
+.back-link { padding: 0 0 clamp(2.5rem, 6vw, 4rem); }
+
+/* --- 11. Responsive ------------------------------------------------------ */
+@media (max-width: 860px) {
+  .cards { grid-template-columns: 1fr; }
+  .welcome__grid { grid-template-columns: 1fr; justify-items: center; text-align: left; }
+  .portrait { width: min(210px, 60vw); }
+  .resume__grid { grid-template-columns: 1fr; }
+  .resume__grid h2 { position: static; margin-bottom: .8rem; }
+  .site-header .wrap { padding: .7rem 0; }
+  .hero__inner { text-align: left; }
+  .hero__services { justify-content: flex-start; margin-inline: 0; }
+  .contact__inner { text-align: left; }
+  .contact .narrow { margin-inline: 0; }
+  .contact__details { justify-content: flex-start; }
+}
+
+@media (max-width: 560px) {
+  body { font-size: 1rem; }
+  .wrap { width: min(1120px, 100% - 2rem); }
+  .site-nav ul { gap: .2rem 1rem; }
+  .site-nav a { font-size: .87rem; }
+  .contact__details { flex-direction: column; gap: .4rem; }
+}
+
+/* --- 12. Motion & no-JS fallbacks --------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .card, .card__inner, .btn { transition: none !important; }
+}
+
+/* If JavaScript is unavailable the cards simply show all their content. */
+.no-js .card { height: auto !important; perspective: none; }
+.no-js .card__inner { transform: none !important; }
+.no-js .card__face {
+  position: static; transform: none !important;
+  backface-visibility: visible; -webkit-backface-visibility: visible;
+}
+.no-js .card__face--back { margin-top: -1px; border-top: 0; border-radius: 0 0 var(--radius) var(--radius); }
+.no-js .card__face--front { border-radius: var(--radius) var(--radius) 0 0; }
+.no-js .card__actions, .no-js .flip-hint { display: none; }
+
+/* --- 13. Print (resume) -------------------------------------------------- */
+@media print {
+  .site-header, .site-footer, .back-link, .page-head__media, .btn { display: none !important; }
+  body { background: #fff; font-size: 11pt; line-height: 1.45; }
+  .resume__section { break-inside: avoid; padding: .6rem 0; }
+  .page-head__inner, .resume { padding: 0 0 .6rem; }
+  a { color: var(--ink); text-decoration: none; }
+}
+
+/* Front of a card is clickable when JavaScript is available. */
+.js .card__face--front { cursor: pointer; }

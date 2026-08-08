@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Editors
+*.swp
+*~
+
+# Jekyll build output (GitHub builds the site on its own servers)
+_site/
+.jekyll-cache/
+.sass-cache/
+Gemfile.lock
