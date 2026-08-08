@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+  This is the *template* for the main page. It holds the structure only —
+  every word a visitor reads comes from content.md.
+
+  Do not edit index.html by hand: it is generated from this file plus
+  content.md, and any change made directly to it will be overwritten the
+  next time the site is built. See README.md.
+
+  {{ names in double braces }} are filled in by build.py.
+-->
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ site_title }}</title>
+<meta name="description" content="{{ site_description }}">
+<meta name="theme-color" content="#f6f2ea">
+
+<!-- Social sharing preview -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ site_title }}">
+<meta property="og:description" content="{{ site_description }}">
+<meta property="og:image" content="{{ hero_image }}">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/lora-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="wordmark" href="index.html"><em>Insights</em><span>LLC</span></a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="hero__media">
+      <img src="{{ hero_image }}" alt="">
+    </div>
+    <div class="wrap hero__inner">
+      <h1>{{ name }}</h1>
+      <p class="hero__credential">{{ credential }}</p>
+      <p class="hero__services">
+        <span class="line">{{ tagline_one }}</span><span class="dot" aria-hidden="true">✳</span><span class="line">{{ tagline_two }}</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== WELCOME ===================== -->
+  <section class="section" id="about">
+    <div class="wrap welcome__grid">
+      <div class="portrait">
+        <img src="{{ portrait_image }}" alt="{{ portrait_alt }}">
+      </div>
+      <div class="welcome__text">
+        <p class="eyebrow">{{ welcome_eyebrow }}</p>
+        <div class="prose">
+          {{ welcome }}
+        </div>
+        <p class="resume-link">
+          <a class="btn btn--ghost" href="resume.html">{{ resume_link_text }}</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES (FLIP CARDS) ===================== -->
+  <section class="section section--band" id="services">
+    <div class="wrap">
+      <p class="eyebrow">{{ services_eyebrow }}</p>
+      <h2 class="narrow">{{ services_heading }}</h2>
+      <p class="narrow flip-hint">{{ services_hint }}</p>
+
+      <div class="cards">
+
+        <!-- ---------- Card one ---------- -->
+        <article class="card" data-card>
+          <div class="card__inner">
+
+            <div class="card__face card__face--front">
+              <div class="card__photo">
+                <img src="{{ card_one_image }}" alt="{{ card_one_alt }}" loading="lazy">
+              </div>
+              <div class="card__body">
+                <h2>{{ card_one_title }}</h2>
+                <div class="prose">
+                {{ card_one_front }}
+                </div>
+                <div class="card__actions">
+                  <button class="btn btn--ghost" type="button" data-flip aria-expanded="false">
+                    Read more <span aria-hidden="true">↻</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card__face card__face--back">
+              <div class="card__back-scroll">
+                <h2>{{ card_one_title }}</h2>
+                <div class="prose">
+                {{ card_one_back }}
+                </div>
+                <div class="card__actions">
+                  <button class="btn btn--ghost" type="button" data-flip>
+                    <span aria-hidden="true">↺</span> Back
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- ---------- Card two ---------- -->
+        <article class="card" data-card>
+          <div class="card__inner">
+
+            <div class="card__face card__face--front">
+              <div class="card__photo">
+                <img src="{{ card_two_image }}" alt="{{ card_two_alt }}" loading="lazy">
+              </div>
+              <div class="card__body">
+                <h2>{{ card_two_title }}</h2>
+                <div class="prose">
+                {{ card_two_front }}
+                </div>
+                <div class="card__actions">
+                  <button class="btn btn--ghost" type="button" data-flip aria-expanded="false">
+                    Read more <span aria-hidden="true">↻</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="card__face card__face--back">
+              <div class="card__back-scroll">
+                <h2>{{ card_two_title }}</h2>
+                <div class="prose">
+                {{ card_two_back }}
+                </div>
+                <div class="card__actions">
+                  <button class="btn btn--ghost" type="button" data-flip>
+                    <span aria-hidden="true">↺</span> Back
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="contact" id="contact">
+    <div class="contact__media">
+      <img src="{{ contact_image }}" alt="" loading="lazy">
+    </div>
+    <div class="wrap contact__inner">
+      <div class="narrow">
+        <p class="eyebrow eyebrow--light">{{ contact_eyebrow }}</p>
+        <h2>{{ contact_heading }}</h2>
+        <div class="prose">
+          {{ contact }}
+        </div>
+        <ul class="contact__details">
+          <li><a href="mailto:{{ email }}">{{ email }}</a></li>
+          <li><a href="tel:{{ phone_dial }}">{{ phone }}</a></li>
+        </ul>
+        <p class="contact__signoff">{{ contact_signoff }}</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; <span id="year">2026</span> Insights LLC · {{ name }}, MSW</p>
+    <p><a href="resume.html">Resume</a> · <a href="mailto:{{ email }}">{{ email }}</a> · <a href="tel:{{ phone_dial }}">{{ phone }}</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

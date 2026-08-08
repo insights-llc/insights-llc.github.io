@@ -1,0 +1,48 @@
+# Rebuilds index.html whenever the words in content.md change.
+#
+# This is what lets the site be updated entirely from the GitHub website:
+# edit content.md in the browser, commit, and a minute later the live page
+# has been rebuilt and published. Nothing needs to be installed locally.
+
+name: Rebuild the main page
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - content.md
+      - _template.html
+      - build.py
+      - .github/workflows/build.yml
+  workflow_dispatch:        # also lets you run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install the markdown library
+        run: pip install markdown
+
+      - name: Build index.html from content.md
+        run: python3 build.py
+
+      - name: Commit the rebuilt page
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "index.html was already up to date; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Rebuild index.html from content.md [skip ci]"
+          git push
