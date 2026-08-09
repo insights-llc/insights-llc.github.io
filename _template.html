@@ -53,7 +53,6 @@
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="bio.html">Bio</a></li>
-        <li><a href="resume.html">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -74,7 +73,7 @@
            reason the header wordmark is: it is a logo, not a line of text. -->
       <p class="wordmark name-mark hero__credential"><em>Insights</em><span>LLC</span></p>
       <p class="hero__services">
-        <span class="line">{{ tagline_one }}</span><span class="dot" aria-hidden="true">✳</span><span class="line">{{ tagline_two }}</span>
+        <span class="line">{{ tagline_one }}</span><span class="line">{{ tagline_two }}</span>
       </p>
     </div>
   </section>
@@ -91,7 +90,7 @@
           {{ welcome }}
         </div>
         <p class="resume-link">
-          <a class="btn btn--ghost" href="resume.html">{{ resume_link_text }}</a>
+          <a class="btn btn--ghost" href="bio.html">{{ intro_link_text }}</a>
         </p>
       </div>
     </div>
@@ -102,7 +101,6 @@
     <div class="wrap">
       <p class="eyebrow">{{ services_eyebrow }}</p>
       <h2 class="narrow">{{ services_heading }}</h2>
-      <p class="narrow flip-hint">{{ services_hint }}</p>
 
       <div class="cards">
 
@@ -212,8 +210,8 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="site-footer">
   <div class="wrap">
-    <p>&copy; <span id="year">2026</span> Insights LLC · {{ name }}</p>
-    <p><a href="bio.html">Bio</a> · <a href="resume.html">Resume</a> · <a href="mailto:{{ email }}">{{ email }}</a> · <a href="tel:{{ phone_dial }}">{{ phone }}</a></p>
+    <p>&copy; <span id="year">2026</span> {{ name }} · Original photography by {{ name }}</p>
+    <p><a href="bio.html">Bio</a> · <a href="mailto:{{ email }}">{{ email }}</a> · <a href="tel:{{ phone_dial }}">{{ phone }}</a></p>
   </div>
 </footer>
 

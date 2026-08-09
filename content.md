@@ -38,12 +38,11 @@ hero_image: images/ocean.jpg
 welcome_eyebrow: Welcome
 portrait_image: images/headshot.jpg
 portrait_alt: Portrait of Abby Stamelman Hocky
-resume_link_text: Read my full resume
+intro_link_text: Read my bio
 
 # --- The two service cards ---
 services_eyebrow: Two ways to work together
-services_heading: Time set aside to step back, reflect and find the way forward.
-services_hint: Select a card to read more.
+services_heading: Step back, reflect, and find the way forward.
 
 card_one_title: Spiritual Accompaniment
 card_one_image: images/lake.jpg
@@ -55,7 +54,7 @@ card_two_alt: Smooth beach stones of many colours resting together
 
 # --- The contact band at the bottom ---
 contact_eyebrow: Get in touch
-contact_heading: Please reach out for a free introductory and exploratory call.
+contact_heading: Please reach out for a free introductory and exploratory conversation.
 contact_image: images/sunset.jpg
 contact_signoff: Abby Stamelman Hocky · Insights LLC
 email: abbysh.insights@gmail.com
@@ -103,11 +102,10 @@ Spiritual Directors meet about once a month with individuals and/or groups for r
 - **Interested in spiritual accompaniment** for any reason; or
 - **Interested in participating in a small group** for spiritual reflection. The monthly or semi-monthly schedule and location will be formed around interested participants.
 
-> Fees for hour-long *individual sessions* or ninety-minute *group sessions* are offered on a sliding scale. Please reach out for a free introductory and exploratory call.
+> #### Fees
+> Fees for hour-long *individual sessions* or ninety-minute *group sessions* are offered on a sliding scale. Please reach out for a free introductory and exploratory conversation.
 
----
-
-I am humbled to be part of this field, one that has roots in ancient and contemporary religious traditions. [Read more about the practice of spiritual direction and the IJS training program](https://www.jewishspirituality.org/kol-dodi-spiritual-director-listings).
+[Read more about the practice of spiritual direction and the IJS training program](https://www.jewishspirituality.org/kol-dodi-spiritual-director-listings).
 
 
 ## Card two — front
@@ -125,9 +123,10 @@ Leading organizations to address the broad needs of our community is sacred work
 - **Expanded revenue streams and expense reduction through resource-sharing.** There is great benefit to assessing your resource development capacity and strategies with a goal of generating mission-aligned ideas for multiple revenue streams. Discovering creative ways to share overhead expenses, especially in hybrid work environments, can free up resources needed to advance your core mission.
 - **Engaging community members in vibrant religious and spiritual life.** There could not be a better time for spiritual communities to experiment with new ways to meet the increased desire for community, connection and belonging.
 
-> An hourly or project-based fee will be determined once the scope of the consultation is defined. Please reach out for a free introductory and exploratory call.
+> #### Fees
+> An hourly or project-based fee will be determined once the scope of the consultation is defined. Please reach out for a free introductory and exploratory conversation.
 
 
 ## Contact
 
-I am glad to talk through what you are looking for and whether working together makes sense — with no obligation.
+Meetings available in person or on a virtual platform.

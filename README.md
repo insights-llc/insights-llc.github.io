@@ -182,9 +182,9 @@ Within the writing:
 - A line starting with `- ` becomes a bullet point.
 - `[Words in square brackets](https://example.com)` become a link.
 - A line starting with `### ` becomes a small heading inside a card.
-- A line starting with `> ` becomes the highlighted note about fees.
-- Anything after a line of three dashes at the end of a card becomes the small
-  footnote text.
+- A line starting with `> ` becomes the note set off by a coloured rule — the
+  one about fees. A `> #### Fees` line at the top of it becomes the small
+  capitals heading on that note.
 
 If you mistype a heading or delete a setting, `build.py` stops and says exactly
 what is missing rather than publishing a broken page.

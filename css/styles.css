@@ -83,7 +83,7 @@ p:last-child { margin-bottom: 0; }
 
 .eyebrow {
   font-family: var(--sans);
-  font-size: .78rem;
+  font-size: .95rem;
   font-weight: 600;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -153,22 +153,19 @@ p:last-child { margin-bottom: 0; }
   padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 7vw, 5.5rem);
   text-align: center;
 }
-.hero h1 { margin-bottom: .35rem; }
+/* A little smaller than a page heading, so the wordmark below it sits close. */
+.hero h1 { font-size: clamp(1.95rem, 4.7vw, 2.95rem); margin-bottom: .35rem; }
 .hero h1 em { font-style: italic; }
 /* Lettering comes from .wordmark and .name-mark; only the spacing is set here. */
 .hero__credential { margin: 0 0 1.6rem; }
 .hero__services {
-  font-family: var(--serif); font-size: clamp(1.02rem, 2.1vw, 1.28rem);
+  font-family: var(--serif); font-size: clamp(1.15rem, 2.6vw, 1.55rem);
   font-style: italic; color: var(--ink);
-  margin: 0 auto; max-width: 44ch; line-height: 1.6;
+  margin: 0 auto; max-width: 44ch; line-height: 1.5;
 }
-.hero__services .dot {
-  color: var(--clay); font-style: normal;
-  margin: 0 .55em; font-size: .8em; vertical-align: .1em;
-}
-/* Each service name stays whole; it moves to its own line rather than
-   breaking mid-phrase, but still wraps internally on a narrow screen. */
-.hero__services .line { display: inline-block; }
+/* The two kinds of work read as a pair of headings, one to a line. */
+.hero__services .line { display: block; }
+.hero__services .line + .line { margin-top: .3rem; }
 
 /* --- 5. Buttons ---------------------------------------------------------- */
 .btn {
@@ -269,9 +266,13 @@ p:last-child { margin-bottom: 0; }
   margin: 1.4rem 0;
   font-size: .98rem;
 }
-.card .prose hr { display: none; }
-.card .prose hr ~ p { font-size: .9rem; color: var(--ink-soft); margin-top: 1.4rem; }
-.flip-hint { font-size: .82rem; color: var(--ink-soft); margin-bottom: 2.2rem; }
+/* A "#### Fees" line inside the note becomes its heading, lettered like the
+   FEES / WELCOME labels elsewhere on the page. */
+.card .prose blockquote h4 {
+  font-family: var(--sans); font-size: .95rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--clay);
+  margin: 0 0 .45rem;
+}
 
 /* --- 8. Contact band ----------------------------------------------------- */
 .contact { position: relative; color: #fff; background: var(--slate); overflow: hidden; }
@@ -410,7 +411,7 @@ p:last-child { margin-bottom: 0; }
 }
 .no-js .card__face--back { margin-top: -1px; border-top: 0; border-radius: 0 0 var(--radius) var(--radius); }
 .no-js .card__face--front { border-radius: var(--radius) var(--radius) 0 0; }
-.no-js .card__actions, .no-js .flip-hint { display: none; }
+.no-js .card__actions { display: none; }
 
 /* --- 13. Print, and "Save as PDF" ---------------------------------------- */
 /* Both the bio and the resume are meant to come out of Print — or Save as PDF
