@@ -19,6 +19,7 @@ images/         photographs used on the site
 fonts/          Lora and Inter (open-source, SIL Open Font License)
 favicon.svg     the little icon shown in a browser tab
 tools/          one optional script, for redrawing the sharing preview card
+CNAME           the site's address, ash-insights.com — see Part 1, section 5
 ```
 
 Everything the site needs is in this folder — it loads nothing from any other
@@ -50,6 +51,10 @@ the organization's main site and serves it from the root address:
 ```
 https://insights-llc.github.io/
 ```
+
+That is the address GitHub gives away free. The site's real address is
+**<https://ash-insights.com>**, which is section 5 below; the GitHub one keeps
+working and redirects to it.
 
 ### 3. Push this folder
 
@@ -89,26 +94,57 @@ because the automation in Part 2 commits the rebuilt page back to the
 repository: **Workflow permissions** should be set to *Read and write
 permissions*.
 
-### 5. (Optional) Use your own domain name
+### 5. Pointing ash-insights.com at the site
 
-The draft mentioned securing a web address with "insights" in it. Once you have
-bought one from a registrar such as Namecheap, Porkbun, Cloudflare or Google
-Domains:
+The address of the site is **ash-insights.com**, registered at Hover. Two
+things have to agree for that to work: GitHub has to know the site answers to
+that name, and Hover has to send visitors to GitHub's servers.
 
-1. In the repository, create a file named `CNAME` (no extension) containing only
-   your domain, e.g. `insightsconsultingllc.com`
-2. At your registrar, point the domain at GitHub by adding these DNS records:
+**The GitHub half is already done.** The file named `CNAME` in this folder
+contains one line, `ash-insights.com`, and that is what tells GitHub. Do not
+delete or rename it; a stray edit to that file takes the site off the air.
 
-   | Type  | Name  | Value                    |
-   |-------|-------|--------------------------|
-   | A     | `@`   | `185.199.108.153`        |
-   | A     | `@`   | `185.199.109.153`        |
-   | A     | `@`   | `185.199.110.153`        |
-   | A     | `@`   | `185.199.111.153`        |
-   | CNAME | `www` | `insights-llc.github.io.` |
+**The Hover half** is a one-time change, done at
+[hover.com](https://www.hover.com) → sign in → **ash-insights.com** → the
+**DNS** tab.
 
-3. Back in **Settings → Pages**, enter the domain under "Custom domain", save,
-   and tick **Enforce HTTPS** once it becomes available (usually within an hour).
+A new domain arrives with placeholder records pointing at Hover's own "parked"
+page. Those have to go, or they will keep winning:
+
+1. **Delete** every existing `A` record whose name is `@`, and the existing
+   `CNAME` record named `www`. Leave anything else alone — in particular leave
+   `MX` records alone, since those carry email.
+2. **Add** these five records. Hover asks for a Type, a Hostname and a Value;
+   the TTL can stay at whatever it offers.
+
+   | Type  | Hostname | Value                   |
+   |-------|----------|-------------------------|
+   | A     | `@`      | `185.199.108.153`       |
+   | A     | `@`      | `185.199.109.153`       |
+   | A     | `@`      | `185.199.110.153`       |
+   | A     | `@`      | `185.199.111.153`       |
+   | CNAME | `www`    | `insights-llc.github.io` |
+
+   Four `A` records is correct, not a mistake — they are GitHub's four servers,
+   and the site will use whichever answers first. The `CNAME` is what makes
+   `www.ash-insights.com` work as well as the bare name; GitHub redirects one
+   to the other by itself.
+
+3. **Wait.** The change usually takes effect within an hour, occasionally
+   longer. Meanwhile the site stays reachable at its GitHub address.
+4. Once <https://ash-insights.com> loads, go to **Settings → Pages** in the
+   repository and tick **Enforce HTTPS**. That option only becomes available
+   after GitHub has issued a certificate for the domain, which takes a few
+   minutes more. Tick it — it is what makes the padlock appear in the browser.
+
+To check progress from a Terminal without waiting on the browser:
+
+```bash
+dig +short ash-insights.com
+```
+
+Once that prints the four `185.199.*` addresses instead of anything else, the
+change has gone through.
 
 GitHub's own instructions, if you want a second opinion:
 <https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site>
@@ -236,7 +272,7 @@ out of hidden tags in it — a picture, a title and a line of description. The
 main page's card comes from five settings at the top of `content.md`:
 
 ```
-site_url:            https://insights-llc.github.io
+site_url:            https://ash-insights.com
 preview_image:       images/social-card.jpg
 preview_title:       Insights LLC — Abby Stamelman Hocky
 preview_description: Leadership and organizational consulting, and spiritual …
@@ -276,7 +312,7 @@ not change.
   *Scrape Again* button, or LinkedIn's
   [post inspector](https://www.linkedin.com/post-inspector/).
 - To test in Messages without waiting, add something harmless to the end of the
-  address — `https://insights-llc.github.io/?v=2` — which the site ignores but
+  address — `https://ash-insights.com/?v=2` — which the site ignores but
   which Messages treats as a new page.
 
 #### Redrawing the branded card

@@ -21,7 +21,7 @@ site_description: Insights LLC — Abby Stamelman Hocky. Leadership and organiza
 #  explains why a changed preview can take a while to show up.
 #  site_url must be the real address of the site: previews need the full web
 #  address of the picture, and it is worked out from this.
-site_url: https://insights-llc.github.io
+site_url: https://ash-insights.com
 site_name: Insights LLC
 preview_image: images/social-card.jpg
 preview_alt: Dune grass above a calm sea, above the words Insights LLC — Abby Stamelman Hocky
