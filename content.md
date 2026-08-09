@@ -13,7 +13,7 @@
 
 # --- Browser tab and search-engine listing ---
 site_title: Insights LLC — Abby Stamelman Hocky
-site_description: Insights LLC — Abby Stamelman Hocky. Leadership and organizational consulting, and spiritual accompaniment (spiritual direction) for individuals, groups and organizational leaders.
+site_description: Insights LLC — Abby Stamelman Hocky. Leadership & organizational consulting, and spiritual accompaniment (spiritual direction) for individuals, groups and organizational leaders.
 
 # --- The preview shown when the address is texted, posted or pasted ---
 #  Messages, WhatsApp, Slack, Facebook and the rest build that little card from
@@ -26,11 +26,11 @@ site_name: Insights LLC
 preview_image: images/social-card.jpg
 preview_alt: Dune grass above a calm sea, above the words Insights LLC — Abby Stamelman Hocky
 preview_title: Insights LLC — Abby Stamelman Hocky
-preview_description: Leadership and organizational consulting, and spiritual accompaniment, for individuals, groups and organizational leaders.
+preview_description: Leadership & organizational consulting, and spiritual accompaniment, for individuals, groups and organizational leaders.
 
 # --- The banner at the top ---
 name: Abby Stamelman Hocky
-tagline_one: Leadership and Organizational Consulting
+tagline_one: Leadership & Organizational Consulting
 tagline_two: Spiritual Accompaniment (Spiritual Direction)
 hero_image: images/ocean.jpg
 
