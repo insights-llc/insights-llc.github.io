@@ -31,7 +31,7 @@ preview_description: Leadership & organizational consulting, and spiritual accom
 # --- The banner at the top ---
 name: Abby Stamelman Hocky
 tagline_one: Leadership & Organizational Consulting
-tagline_two: Spiritual Accompaniment (Spiritual Direction)
+tagline_two: Spiritual Direction/Spiritual Accompaniment
 hero_image: images/ocean.jpg
 
 # --- The welcome section ---
@@ -44,7 +44,9 @@ intro_link_text: Read my bio
 services_eyebrow: Two ways to work together
 services_heading: Step back, reflect, and find the way forward.
 
-card_one_title: Spiritual Accompaniment
+card_one_title: Spiritual Direction
+# The heading on the reverse of the card, once it has been turned over.
+card_one_back_title: Spiritual Accompaniment
 card_one_image: images/lake.jpg
 card_one_alt: A hammock strung between trees above a lake at dusk
 
@@ -78,21 +80,21 @@ phone_dial: +12158398162
 
 ## Welcome
 
-Welcome to Insights LLC. I am devoting this season of my professional life to working with individuals and organizational leaders seeking to uncover, recover and discover strength and possibility. Whether in moments of transition, challenge or thriving, setting aside time to step back and reflect can be your greatest asset.
+Welcome to Insights LLC. I am devoting this season of my professional life to working with individuals and organizational leaders seeking to uncover, recover and discover strength and possibility. Whether in moments of transition, challenge or thriving, setting aside time to step back and reflect will help to chart the way forward.
 
-I look forward to accompanying you on your journey, whether through leadership consulting or through the practice of spiritual direction. Building on decades of life-giving work and organizational leadership in Jewish communal and interfaith settings, I am excited to focus on cultivating and strengthening the internal resources that unleash our potential.
+I look forward to accompanying you on your journey, whether through leadership consulting or through the practice of spiritual direction. Building on decades of life-giving work and organizational leadership in interfaith and Jewish communal settings, I am excited to focus on cultivating and strengthening the internal resources that unleash our potential.
 
 
 ## Card one — front
 
-*(Spiritual Direction)* — The fullness of life calls for our attention and presence on multiple fronts. How do we bring intention to the ways our singular and unique life unfolds in everyday moments? How do we stay grounded in our core values in the midst of challenge? What practices do we have that nurture our spirit?
+Choosing Spiritual Direction offers the opportunity to pause once a month to explore our inner compass. It allows us to bring intention to the ways our life unfolds in everyday moments. It helps us stay anchored in our core values when encountering the storms of life.
+
+Spiritual Directors meet each month with individuals and/or groups for reflection and conversation that is both sacred and confidential. Sessions can be in person or on a virtual platform.
 
 
 ## Card one — back
 
 Whatever your spiritual or religious expression, your journey has likely taken twists and turns, rich with questions, doubts, and experiences of awe, wonder and mystery. Inviting a practice of Spiritual Accompaniment offers the opportunity for soulful exploration that can awaken new awareness of the resources available in the spiritual dimension of your life.
-
-Spiritual Directors meet about once a month with individuals and/or groups for reflection and conversation that is both sacred and confidential. Sessions can be in person or on a virtual platform.
 
 ### It is my privilege to work with people who are…
 

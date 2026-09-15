@@ -352,7 +352,7 @@ The photographs currently in use:
 |-------------------|----------------------------------------------------|
 | `ocean.jpg`       | Background of the top banner                       |
 | `headshot.jpg`    | Portrait in the welcome section, and on the bio page |
-| `lake.jpg`        | Spiritual Accompaniment card; bio page heading     |
+| `lake.jpg`        | Spiritual Direction card; bio page heading         |
 | `rocks.jpg`       | Leadership & Organizational Consulting card        |
 | `sunset.jpg`      | Background of the contact band                     |
 | `flower.jpg`      | Background of the resume page heading              |
