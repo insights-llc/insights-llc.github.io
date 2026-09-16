@@ -112,18 +112,30 @@ Whatever your spiritual or religious expression, your journey has likely taken t
 
 ## Card two — front
 
-Leading organizations to address the broad needs of our community is sacred work. Investing in the backbone of organizational life — Board and professional leadership — can be your best investment. Devoting reflective time and resources to the most critical areas of need can pay off in compounded ways.
+Leading organizations that serve the broad needs of our communities is important and sacred work. Organizations already possess strengths, wisdom, relationships, and resources. My approach to consulting begins by illuminating those strengths and then exploring, together, strategies that help leaders become more effective.
 
 
 ## Card two — back
 
-### I would love to partner with you to explore strategies for…
+### I bring particular professional expertise to the following focus areas:
 
-- **Board and leadership development.** Recruiting and fostering strong Board leadership is critical to organizational excellence and integrity. What skills and perspectives are needed to be in tune with your constituents and advance your organization's unique work? What are the characteristics of exceptional Board members who can maintain values-based decision making and mission alignment? Open and honest Board relationships and communication are critical components of organizational management and may need special attention.
-- **Building a first-rate professional team.** Personnel is the greatest asset of an organization. Recruiting the right people and investing in your team will assure that you carry out your mission with integrity and vitality. At times consultation on sticky personnel issues is needed.
-- **Organizational partnership and collaboration.** Cultivating strong partnerships with shared understanding and a clear division of responsibility can be challenging. Collaborative models can enhance collective impact and make good use of resources, and can require special leadership skills.
-- **Expanded revenue streams and expense reduction through resource-sharing.** There is great benefit to assessing your resource development capacity and strategies with a goal of generating mission-aligned ideas for multiple revenue streams. Discovering creative ways to share overhead expenses, especially in hybrid work environments, can free up resources needed to advance your core mission.
-- **Engaging community members in vibrant religious and spiritual life.** There could not be a better time for spiritual communities to experiment with new ways to meet the increased desire for community, connection and belonging.
+- **Board & Leadership Development.** Recruiting and fostering strong Board leadership is critical to organizational excellence and integrity. What skills and perspectives are needed to stay in tune with your constituents and advance your organization's unique work? What are the characteristics of exceptional Board members who can maintain values-based decision-making and strong mission alignment?
+
+    Open, honest Board–Staff relationships and communication are essential to effective governance. Navigating healthy conflict and creative tension is also important to strong organizations and sometimes calls for special attention.
+
+- **Building a First-Rate Professional Team.** People are an organization's greatest asset. Recruiting the right personnel and investing in your team can help ensure that you carry out your mission with integrity and vitality. At times, consultation on challenging or sensitive personnel issues is needed.
+
+- **Planning for Succession.** Leadership and founder transitions can be destabilizing. How do you plan and prepare thoughtfully for major professional and Board leadership transitions? How can you optimize the strength and stability offered by long-term leadership while creating a pathway for future growth?
+
+    Even strong leadership can give rise to natural tensions and challenges, including resistance to change. Thoughtful attention to these dynamics can help organizations navigate transition with greater clarity and confidence.
+
+- **Organizational Partnership & Collaboration.** Cultivating strong partnerships — with shared understanding and a clear division of responsibility — can be challenging. At the same time, collaborative models can enhance collective impact and make better use of resources. Periodically reviewing a partnership can clarify shared commitments and leadership responsibilities while strengthening ongoing communication and relationships.
+
+- **Expanding Revenue & Sharing Resources.** There is great benefit in periodically assessing your organization's resource development capacity and strategies. Is there an opportunity to generate new, mission-aligned ideas for expanding revenue streams?
+
+    Discovering creative ways to share overhead expenses, especially in hybrid work environments, can also free up resources to advance your core mission.
+
+- **Engaging Community in Vibrant Religious & Spiritual Life.** There could not be a better time for spiritual communities to experiment with new ways of cultivating community, connection, and belonging. How can religious leaders and congregations listen more deeply to the emerging needs of their members? How might they respond creatively to a growing desire for meaning, connection, and spiritual vitality?
 
 > #### Fees
 > An hourly or project-based fee will be determined once the scope of the consultation is defined. Please reach out for a free introductory and exploratory conversation.
